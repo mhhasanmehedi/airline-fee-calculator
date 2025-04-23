@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Airline Fee Calculator</title>
+    <title>Airline Fee Table</title>
     <style>
       * {
         box-sizing: border-box;
@@ -13,213 +13,173 @@
       }
 
       body {
+        background-color: #f9f9f9;
         padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
       }
 
-      .form-container {
-        width: 100%;
+      .container {
         max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         padding: 20px;
       }
 
-      .form-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+      }
+
+      td {
+        padding: 5px;
+      }
+
+      .table-input {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .pax-type-input {
+        background-color: #f8f8f8;
       }
 
       .form-group {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
       }
 
       .form-label {
         display: block;
-        margin-bottom: 8px;
-        color: #333;
-        font-weight: 500;
-        font-size: 16px;
-      }
-
-      .required::after {
-        content: " *";
-        color: #e74c3c;
+        margin-bottom: 5px;
+        font-weight: bold;
       }
 
       .form-control {
         width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f8f9fa;
-        font-size: 14px;
-        color: #333;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
       }
 
-      .form-control:focus {
-        outline: none;
-        border-color: #7b9ed8;
-      }
-
-      .form-control::placeholder {
-        color: #999;
-      }
-
-      .form-control[readonly] {
-        background-color: #e9ecef;
-      }
-
-      .spinner-container {
-        position: relative;
-      }
-
-      .spinner-control {
-        padding-right: 40px;
-      }
-
-      .spinner-buttons {
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        width: 30px;
-        border-left: 1px solid #ccc;
-      }
-
-      .spinner-button {
-        flex: 1;
-        background: #f1f1f1;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .spinner-button:hover {
-        background: #e1e1e1;
-      }
-
-      .spinner-button:first-child {
-        border-bottom: 1px solid #ccc;
-      }
-
-      .remarks-textarea {
-        min-height: 100px;
+      textarea.form-control {
+        min-height: 80px;
         resize: vertical;
       }
 
-      .readonly-field {
-        background-color: #e9ecef;
-        color: #495057;
-      }
+      @media (max-width: 600px) {
+        table {
+          font-size: 14px;
+        }
 
-      .total-fee {
-        background-color: #e9ecef;
-        font-weight: bold;
-        color: #495057;
-      }
+        th,
+        td {
+          padding: 6px 4px;
+        }
 
-      @media (max-width: 768px) {
-        .form-grid {
-          grid-template-columns: 1fr;
+        .table-input {
+          padding: 4px;
+          font-size: 13px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="form-container">
-      <div class="form-grid">
-        <div>
-          <div class="form-group">
-            <label class="form-label required">Airline Penalty Amount</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter airline penalty amount"
-            />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label required">Fare Difference</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter fare difference fee"
-            />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Minutes Limit</label>
-            <div class="spinner-container">
+    <div class="container">
+      <!-- Main Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Pax Type</th>
+            <th>Fare Difference</th>
+            <th>Tax Difference</th>
+            <th>Service Charge</th>
+            <th>Total (BDT)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
               <input
                 type="text"
-                class="form-control spinner-control"
-                value="60 minutes limit"
+                class="table-input pax-type-input"
+                value="Adult"
               />
-            </div>
-          </div>
+            </td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td><input type="number" class="table-input" value="150" /></td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td>
+              <input type="number" class="table-input" value="550" readonly />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text"
+                class="table-input pax-type-input"
+                value="Child"
+              />
+            </td>
+            <td><input type="number" class="table-input" value="150" /></td>
+            <td><input type="number" class="table-input" value="100" /></td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td>
+              <input type="number" class="table-input" value="450" readonly />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text"
+                class="table-input pax-type-input"
+                value="Infant"
+              />
+            </td>
+            <td><input type="number" class="table-input" value="50" /></td>
+            <td><input type="number" class="table-input" value="50" /></td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td>
+              <input type="number" class="table-input" value="300" readonly />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" style="text-align: right">Grand Total</td>
+            <td>
+              <input type="number" class="table-input" value="300" readonly />
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-          <div class="form-group">
-            <label class="form-label">Previous Amount</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter Previous Amount"
-            />
-          </div>
-        </div>
+      <!-- Separate Minutes Limit -->
+      <div class="form-group">
+        <label class="form-label">Minutes Limit</label>
+        <input type="text" class="form-control" value="30 minutes" />
+      </div>
 
-        <div>
-          <div class="form-group">
-            <label class="form-label required">Service Fee</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter service fee"
-            />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label required">Tax Difference</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter tax difference fee"
-            />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Total Fee</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter Total Fee"
-            />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Current Amount</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter Current Amount"
-            />
-          </div>
-        </div>
-
-        <div class="form-group" style="grid-column: 1 / -1">
-          <label class="form-label">Remarks</label>
-          <textarea
-            class="form-control remarks-textarea"
-            placeholder="Write remarks here ..."
-          ></textarea>
-        </div>
+      <!-- Separate Remarks -->
+      <div class="form-group">
+        <label class="form-label">Remarks</label>
+        <textarea
+          class="form-control"
+          placeholder="Enter remarks here..."
+        ></textarea>
       </div>
     </div>
   </body>

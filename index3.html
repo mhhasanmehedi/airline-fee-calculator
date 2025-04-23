@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airline Fee Calculator</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .form-container {
+        width: 100%;
+        max-width: 800px;
+        padding: 20px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .required::after {
+        content: " *";
+        color: #e74c3c;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        font-size: 14px;
+        color: #333;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #7b9ed8;
+      }
+
+      .form-control::placeholder {
+        color: #999;
+      }
+
+      .form-control[readonly] {
+        background-color: #e9ecef;
+      }
+
+      .spinner-container {
+        position: relative;
+      }
+
+      .spinner-control {
+        padding-right: 40px;
+      }
+
+      .spinner-buttons {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        width: 30px;
+        border-left: 1px solid #ccc;
+      }
+
+      .spinner-button {
+        flex: 1;
+        background: #f1f1f1;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .spinner-button:hover {
+        background: #e1e1e1;
+      }
+
+      .spinner-button:first-child {
+        border-bottom: 1px solid #ccc;
+      }
+
+      .remarks-textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+
+      .readonly-field {
+        background-color: #e9ecef;
+        color: #495057;
+      }
+
+      .total-fee {
+        background-color: #e9ecef;
+        font-weight: bold;
+        color: #495057;
+      }
+
+      @media (max-width: 768px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="form-grid">
+        <div>
+          <div class="form-group">
+            <label class="form-label required">Airline Penalty Amount</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter airline penalty amount"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label required">Fare Difference</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter fare difference fee"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Minutes Limit</label>
+            <div class="spinner-container">
+              <input
+                type="text"
+                class="form-control spinner-control"
+                value="60 minutes limit"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Previous Amount</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Previous Amount"
+            />
+          </div>
+        </div>
+
+        <div>
+          <div class="form-group">
+            <label class="form-label required">Service Fee</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter service fee"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label required">Tax Difference</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter tax difference fee"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Total Fee</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Total Fee"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Current Amount</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Current Amount"
+            />
+          </div>
+        </div>
+
+        <div class="form-group" style="grid-column: 1 / -1">
+          <label class="form-label">Remarks</label>
+          <textarea
+            class="form-control remarks-textarea"
+            placeholder="Write remarks here ..."
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
