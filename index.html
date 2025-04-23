@@ -18,12 +18,13 @@
       }
 
       .container {
-        max-width: 800px;
+        max-width: 1400px;
         margin: 0 auto;
         background-color: #fff;
         border-radius: 5px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         padding: 20px;
+        overflow-x: auto;
       }
 
       table {
@@ -42,6 +43,7 @@
       th {
         background-color: #f2f2f2;
         font-weight: bold;
+        white-space: nowrap;
       }
 
       td {
@@ -106,9 +108,12 @@
         <thead>
           <tr>
             <th>Pax Type</th>
+            <th>Airline Penalty Amount</th>
             <th>Fare Difference</th>
             <th>Tax Difference</th>
             <th>Service Charge</th>
+            <th>Previous Amount</th>
+            <th>Current Amount</th>
             <th>Total (BDT)</th>
           </tr>
         </thead>
@@ -121,6 +126,9 @@
                 value="Adult"
               />
             </td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td><input type="number" class="table-input" value="150" /></td>
             <td><input type="number" class="table-input" value="200" /></td>
             <td><input type="number" class="table-input" value="150" /></td>
             <td><input type="number" class="table-input" value="200" /></td>
@@ -137,6 +145,27 @@
               />
             </td>
             <td><input type="number" class="table-input" value="150" /></td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td><input type="number" class="table-input" value="100" /></td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td><input type="number" class="table-input" value="100" /></td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td>
+              <input type="number" class="table-input" value="450" readonly />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text"
+                class="table-input pax-type-input"
+                value="Kids"
+              />
+            </td>
+            <td><input type="number" class="table-input" value="150" /></td>
+            <td><input type="number" class="table-input" value="150" /></td>
+            <td><input type="number" class="table-input" value="100" /></td>
+            <td><input type="number" class="table-input" value="200" /></td>
             <td><input type="number" class="table-input" value="100" /></td>
             <td><input type="number" class="table-input" value="200" /></td>
             <td>
@@ -153,13 +182,16 @@
             </td>
             <td><input type="number" class="table-input" value="50" /></td>
             <td><input type="number" class="table-input" value="50" /></td>
+            <td><input type="number" class="table-input" value="50" /></td>
+            <td><input type="number" class="table-input" value="200" /></td>
+            <td><input type="number" class="table-input" value="50" /></td>
             <td><input type="number" class="table-input" value="200" /></td>
             <td>
               <input type="number" class="table-input" value="300" readonly />
             </td>
           </tr>
           <tr>
-            <td colspan="4" style="text-align: right">Grand Total</td>
+            <td colspan="7" style="text-align: right">Grand Total</td>
             <td>
               <input type="number" class="table-input" value="300" readonly />
             </td>
