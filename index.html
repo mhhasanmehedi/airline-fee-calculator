@@ -18,7 +18,7 @@
       }
 
       .container {
-        max-width: 1400px;
+        max-width: 1000px;
         margin: 0 auto;
         background-color: #fff;
         border-radius: 5px;
@@ -42,8 +42,7 @@
 
       th {
         background-color: #f2f2f2;
-        font-weight: bold;
-        white-space: nowrap;
+        font-weight: 600 !important;
       }
 
       td {
@@ -108,7 +107,11 @@
         <thead>
           <tr>
             <th>Pax Type</th>
-            <th>Airline Penalty Amount</th>
+            <th>
+              No of <br />
+              Pax
+            </th>
+            <th>Airline Penalty</th>
             <th>Fare Difference</th>
             <th>Tax Difference</th>
             <th>Service Charge</th>
@@ -126,6 +129,7 @@
                 value="Adult"
               />
             </td>
+            <td><input type="number" class="table-input" value="2" /></td>
             <td><input type="number" class="table-input" value="200" /></td>
             <td><input type="number" class="table-input" value="200" /></td>
             <td><input type="number" class="table-input" value="150" /></td>
@@ -144,6 +148,7 @@
                 value="Child"
               />
             </td>
+            <td><input type="number" class="table-input" value="1" /></td>
             <td><input type="number" class="table-input" value="150" /></td>
             <td><input type="number" class="table-input" value="200" /></td>
             <td><input type="number" class="table-input" value="100" /></td>
@@ -162,6 +167,7 @@
                 value="Kids"
               />
             </td>
+            <td><input type="number" class="table-input" value="1" /></td>
             <td><input type="number" class="table-input" value="150" /></td>
             <td><input type="number" class="table-input" value="150" /></td>
             <td><input type="number" class="table-input" value="100" /></td>
@@ -180,6 +186,7 @@
                 value="Infant"
               />
             </td>
+            <td><input type="number" class="table-input" value="1" /></td>
             <td><input type="number" class="table-input" value="50" /></td>
             <td><input type="number" class="table-input" value="50" /></td>
             <td><input type="number" class="table-input" value="50" /></td>
@@ -191,7 +198,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="7" style="text-align: right">Grand Total</td>
+            <td colspan="8" style="text-align: right">Grand Total</td>
             <td>
               <input type="number" class="table-input" value="300" readonly />
             </td>
